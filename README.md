@@ -1,44 +1,44 @@
 # 🎓 School Management Module
 
-نظام إدارة المدرسة - Odoo 17 Module
+Comprehensive School Management System - Odoo 17 Module
 
-## 📋 الوصف
+## 📋 Description
 
-مجموعة شاملة لإدارة المدارس باستخدام Odoo 17، تتضمن:
+A comprehensive module for managing schools using Odoo 17, includes:
 
-- ✅ إدارة الطلاب
-- ✅ إدارة الفصول
-- ✅ إدارة المواد الدراسية
-- ✅ إدارة الدورات
-- ✅ إدارة السنوات الدراسية
-- ✅ تقارير الطلاب
-- ✅ نظام الإشعارات والتنبيهات
+- ✅ Student Management
+- ✅ Class Management
+- ✅ Subject Management
+- ✅ Course Management
+- ✅ Academic Year Management
+- ✅ Student Reports
+- ✅ Notifications & Alerts System
 
-## 🚀 التثبيت
+## 🚀 Installation
 
-### المتطلبات
+### Requirements
 - Odoo 17+
 - Python 3.9+
 
-### خطوات التثبيت
+### Installation Steps
 
-1. **انسخ المجلد إلى addons:**
+1. **Copy the folder to addons:**
 ```bash
 cp -r school /opt/odoo17/odoo17/addons/
 ```
 
-2. **أضف المسار إلى odoo.conf:**
+2. **Add the path to odoo.conf:**
 ```ini
 addons_path = /opt/odoo17/odoo17/addons
 ```
 
-3. **أعد تشغيل Odoo وقم بتحديث قائمة التطبيقات**
+3. **Restart Odoo and update the Apps list**
 
-4. **ثبت المجموعة من Apps:**
-   - ابحث عن "School"
-   - اضغط Install
+4. **Install the module from Apps:**
+   - Search for "School"
+   - Click Install
 
-## 📁 هيكل المشروع
+## 📁 Project Structure
 
 ```
 school/
@@ -46,11 +46,11 @@ school/
 ├── __manifest__.py
 ├── models/
 │   ├── __init__.py
-│   ├── student.py        # نموذج الطالب
-│   ├── classs.py         # نموذج الفصل
-│   ├── subject.py        # نموذج المادة
-│   ├── course.py         # نموذج الدورة
-│   └── year.py           # نموذج السنة الدراسية
+│   ├── student.py        # Student Model
+│   ├── classs.py         # Class Model
+│   ├── subject.py        # Subject Model
+│   ├── course.py         # Course Model
+│   └── year.py           # Academic Year Model
 ├── views/
 │   ├── base_menu.xml
 │   ├── student_view.xml
@@ -77,84 +77,84 @@ school/
         └── icon.png
 ```
 
-## 🛠️ الميزات الرئيسية
+## 🛠️ Key Features
 
-### 1️⃣ إدارة الطلاب
-- إضافة وتعديل بيانات الطلاب
-- ربط الطالب بالفصل والسنة الدراسية
-- متابعة المستندات المطلوبة
+### 1️⃣ Student Management
+- Add and edit student information
+- Link students to classes and academic years
+- Track required documents
 
-### 2️⃣ إدارة الفصول
-- إنشاء وتنظيم الفصول
-- تعيين الطلاب للفصول
-- إدارة المدرسين والمشرفين
+### 2️⃣ Class Management
+- Create and organize classes
+- Assign students to classes
+- Manage teachers and supervisors
 
-### 3️⃣ إدارة المواد والدورات
-- إنشاء قاعمة المواد الدراسية
-- ربط المواد بالفصول
-- إدارة الدورات التدريبية
+### 3️⃣ Subject & Course Management
+- Create a list of academic subjects
+- Link subjects to classes
+- Manage training courses
 
-### 4️⃣ التقارير
-- تقارير الطلاب
-- إحصائيات الفصول
-- تحليلات الأداء
+### 4️⃣ Reporting
+- Student reports
+- Class statistics
+- Performance analytics
 
-## 📊 قاعدة البيانات
+## 📊 Database
 
-### جداول رئيسية:
-- `school.student` - بيانات الطلاب
-- `school.class` - الفصول الدراسية
-- `school.subject` - المواد الدراسية
-- `school.course` - الدورات
-- `school.year` - السنوات الدراسية
+### Main Tables:
+- `school.student` - Student data
+- `school.class` - Classes
+- `school.subject` - Academic subjects
+- `school.course` - Courses
+- `school.year` - Academic years
 
-## 🔒 الأمان والصلاحيات
+## 🔒 Security & Permissions
 
-- ✅ تحكم في الوصول بناءً على الأدوار
-- ✅ صلاحيات إدارية محددة
-- ✅ حماية البيانات الحساسة
+- ✅ Role-based access control
+- ✅ Defined administrative permissions
+- ✅ Sensitive data protection
 
-## 🌍 اللغات المدعومة
+## 🌍 Supported Languages
 
-- 🇸🇦 العربية
+- 🇸🇦 Arabic
 - 🇬🇧 English
 
-## 📝 الملفات المهمة
+## 📝 Important Files
 
-- `__manifest__.py` - معلومات المجموعة
-- `models/` - نماذج قاعدة البيانات
-- `views/` - واجهات المستخدم
-- `security/` - نظام الأمان والصلاحيات
+- `__manifest__.py` - Module information
+- `models/` - Database models
+- `views/` - User interfaces
+- `security/` - Security & permissions system
 
-## 🐛 المشاكل المعروفة
+## 🐛 Known Issues
 
-لا توجد مشاكل معروفة حالياً.
+No known issues at this time.
 
-## 💡 الميزات المستقبلية
+## 💡 Future Features
 
-- [ ] إدارة الدرجات والامتحانات
-- [ ] نظام إرسال الواجبات
-- [ ] تطبيق جوال للآباء والطلاب
-- [ ] تحليلات متقدمة
+- [ ] Grades & Exam Management
+- [ ] Assignment Submission System
+- [ ] Mobile App for Parents & Students
+- [ ] Advanced Analytics
 
-## 👨‍💻 المساهمون
+## 👨‍💻 Contributors
 
 - Eslam Mohamed Abdelmaqsoud
 
-## 📧 التواصل
+## 📧 Contact
 
-للأسئلة والاقتراحات:
+For questions and suggestions:
 - GitHub Issues: https://github.com/EslamMohamedAbdelmaqsoud/school/issues
 
-## 📄 الترخيص
+## 📄 License
 
 MIT License
 
-## 🙏 شكراً
+## 🙏 Thank You
 
-شكراً لاستخدامك هذه المجموعة! 🎉
+Thank you for using this module! 🎉
 
 ---
 
-**آخر تحديث:** April 8, 2026
+**Last Updated:** April 8, 2026
 
