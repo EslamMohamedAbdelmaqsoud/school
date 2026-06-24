@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_picking_form_inherit" model="ir.ui.view">
+            <field name="name">stock.picking.form.inherit</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="action_view_invoices" type="object" class="oe_stat_button" icon="fa-pencil-square-o"
+                            invisible="invoice_count == 0">
+                        <field name="invoice_count" widget="statinfo" string="Invoices"/>
+                    </button>
+                </xpath>
+
+                <xpath expr="//button[@name='%(stock.act_stock_return_picking)d']" position="after">
+                    <field name="invoice_count" invisible="1"/>
+                    <button name="action_create_invoice" string="Create Invoice" type="object"
+                            invisible="state != 'done' or invoice_count > 0"/>
+                </xpath>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+
+            </field>
+
+
+        </record>
+    </data>
+</odoo>

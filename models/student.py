@@ -7,6 +7,8 @@ class Student(models.Model):
     _description = 'Student'  # to define the name of the model in the database
     _inherit = ['mail.thread', 'mail.activity.mixin']  # to add chatter and activities
 
+    _log_access = True  # to log the creation, modification, and deletion of records in the model ( Features Log Access )
+
     ref = fields.Char(default='New', readonly=1)  # to generate a reference number for each property ( Add Sequences )
     name = fields.Char(string='Name', required=True, default='New Student', tracking=True)
     birth_date = fields.Date(string='Birth Date')
@@ -22,7 +24,7 @@ class Student(models.Model):
     gender = fields.Selection([
         ('male', 'Male'),
         ('female', 'Female')
-    ])
+    ]) 
     level = fields.Selection([
         ('major', 'Major'),
         ('minor', 'Minor'),
@@ -50,7 +52,7 @@ class Student(models.Model):
     subject_ids = fields.One2many('subject', 'student_id', string='Subjects')
     teacher_id = fields.Many2one('res.users', string='Teacher')
 
-    # Sql Constraint Validation ( data base )
+    # SQL Constraint Validation ( database )
     _sql_constraints = [('unique_name', 'unique(name)', 'The name is Exist!'),
                         ('unique_phone', 'unique(phone_number)', 'The phone is Exist!'),
                         ('unique_email', 'unique(email)', 'The email is Exist!')
@@ -149,3 +151,12 @@ class Student(models.Model):
     # #     res = super(Student, self).unlink()
     # #     print("inside unlink method")
     # #     return res
+
+    ############################################### Methods XLSX Report #####################################################
+    def student_xlsx_report(self):
+        active_ids = self.env.context.get('active_ids')
+        return {
+            'type': 'ir.actions.act_url',
+            'url': f'/student/excel/report/{active_ids}',
+            'target': 'new'
+        }

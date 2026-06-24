@@ -4,7 +4,7 @@
     'version': '17.0',
     'summary': 'this module for school management system',
     'category': 'School Management System',
-    'depends': ['base', 'sale_management', 'account', 'mail'
+    'depends': ['base', 'sale_management', 'account', 'hr', 'mail', 'stock'
                 ],
     'data': [
         "security/security.xml",
@@ -16,8 +16,14 @@
         "views/year_view.xml",
         "views/classs_view.xml",
         "views/subject_view.xml",
+        "views/stock_picking_view.xml",
         "wizard/ex_wizard_view.xml",
+        "wizard/employee_report_wizard_view.xml",
         "reports/student_report.xml",
+        "reports/invoice_report_inherit.xml",
+        "reports/employee_report_view.xml",
+        "reports/purchase_report_inherit.xml",
+        "reports/sales_report_inherit.xml",
     ],
     'application': True,
 

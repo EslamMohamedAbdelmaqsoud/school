@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit the purchase order report template to add additional columns for Qty Received and Billed -->
+        <template id="report_purchaseorder_document_inherit" inherit_id="purchase.report_purchaseorder_document">
+
+            <!-- Add new columns for Qty Received and Billed in the table header -->
+            <xpath expr="//table[@class='table table-sm o_main_table table-borderless mt-4']/thead/tr/th[@name='th_quantity']"
+                   position="after">
+                <th name="th_qty_received" class="text-end">
+                    <strong>Qty Received</strong>
+                </th>
+                <th name="th_qty_invoiced" class="text-end">
+                    <strong>Billed</strong>
+                </th>
+            </xpath>
+
+            <!-- Add new columns for Qty Received and Billed in the table body -->
+            <xpath expr="//table[@class='table table-sm o_main_table table-borderless mt-4']/tbody//td[@class='text-end'][1]"
+                   position="after">
+                <td class="text-end">
+                    <span t-field="line.qty_received"/>
+                </td>
+                <td class="text-end">
+                    <span t-field="line.qty_invoiced"/>
+                </td>
+
+            </xpath>
+        </template>
+    </data>
+</odoo>
